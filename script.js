@@ -1,10 +1,10 @@
 // Complete the js code
 function Car(make, model) {
-	this.make= make;
-	this.model=model;
+	this._make= make;
+	this._model=model;
 }
 Car.prototype.getMakeModel=function(){
-	return ` ${this.make} ${this.model}`;
+	return ` ${this._make} ${this._model}`;
 }
 
 function SportsCar(make, model, topSpeed) {
