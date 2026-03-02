@@ -1,22 +1,27 @@
 // Complete the js code
 function Car(make, model) {
-	this._make= make;
-	this._model=model;
+  // Ensure these assignments exist
+  this.make = make;
+  this.model = model;
 }
-Car.prototype.getMakeModel=function(){
-	return `${this._make} ${this._model}`;
-}
+
+Car.prototype.getMakeModel = function() {
+  return `${this.make} ${this.model}`;
+};
 
 function SportsCar(make, model, topSpeed) {
-	Car.call(this, make, model);
-	this.topSpeed= topSpeed;
+  // The 'this' context must be passed to the Car constructor
+  // to link the 'make' and 'model' properties to the SportsCar instance
+  Car.call(this, make, model); 
+  this.topSpeed = topSpeed;
 }
 
-	SportsCar.prototype = Object.create(Car.prototype);
-	SportsCar.prototype.constructor = SportsCar;
-SportsCar.prototype.getTopSpeed=function(){
-	return this.topSpeed;
-}
+SportsCar.prototype = Object.create(Car.prototype);
+SportsCar.prototype.constructor = SportsCar;
+
+SportsCar.prototype.getTopSpeed = function() {
+  return this.topSpeed;
+};
 // Do not change the code below
 window.Car = Car;
 window.SportsCar = SportsCar;
